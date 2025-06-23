@@ -24,13 +24,13 @@ pipeline {
     }
     post{
         always{
-            bat "This session runs always"
+            bat "echo This session runs always"
         }
         success{
-            bat "This session runs when pipeline success"
+            bat "echo This session runs when pipeline success"
         }
         failure{
-            bat "This session runs when pipeline failures"
+            bat "echo This session runs when pipeline failures"
         }
     }
 }
