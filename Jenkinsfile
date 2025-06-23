@@ -18,7 +18,7 @@ pipeline {
         stage('Production') {
             steps {
                 bat 'echo In Production'
-                error 'failure'
+                error 'bat failure'
             }
         }
     
