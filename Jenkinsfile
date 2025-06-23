@@ -20,5 +20,17 @@ pipeline {
                 bat 'echo In Production'
             }
         }
+    
+    }
+    post{
+        always{
+            bat "This session runs always"
+        }
+        success{
+            bat "This session runs when pipeline success"
+        }
+        failure{
+            bat "This session runs when pipeline failures"
+        }
     }
 }
