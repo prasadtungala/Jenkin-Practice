@@ -18,19 +18,20 @@ pipeline {
         stage('Production') {
             steps {
                 bat 'echo In Production'
+                error 'failure'
             }
         }
     
     }
     post{
         always{
-            bat "echo This session runs always"
+            bat "echo always :: This session runs always"
         }
         success{
-            bat "echo This session runs when pipeline success"
+            bat "echo success :: This session runs when pipeline success"
         }
         failure{
-            bat "echo This session runs when pipeline failures"
+            bat "echo failure :: This session runs when pipeline failures"
         }
     }
 }
