@@ -15,7 +15,7 @@ pipeline {
     stages {
         stage('Dev') {
             steps {
-               bat "echo In Development Environment ::  ${param.DEPLOY_ENV}"
+               bat "echo In Development Environment ::  ${params.DEPLOY_ENV}"
             }
         }
         stage('Staging') {
