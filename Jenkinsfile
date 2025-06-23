@@ -7,17 +7,17 @@ pipeline {
     stages {
         stage('Dev') {
             steps {
-               sh 'echo In Development Environment'
+               bat 'echo In Development Environment'
             }
         }
         stage('Staging') {
             steps {
-                sh 'echo In Stagging'
+                bat 'echo In Stagging'
             }
         }
         stage('Production') {
             steps {
-                sh 'echo In Production'
+                bat 'echo In Production'
             }
         }
     }
