@@ -1,8 +1,12 @@
 pipeline {
     agent any
+    // agent{
+    //     label 'AGENT-1'
+    // }
     options {
         // Timeout counter starts AFTER agent is allocated
-        timeout(time: 100, unit: 'SECONDS')
+        timeout(time: 1, unit: 'MINUTES')
+        disableConcurrentBuilds()
     }
     stages {
         stage('Dev') {
@@ -18,7 +22,7 @@ pipeline {
         stage('Production') {
             steps {
                 bat 'echo In Production'
-                error 'bat failure'
+               // error 'bat failure'
             }
         }
     
@@ -26,6 +30,7 @@ pipeline {
     post{
         always{
             bat "echo always :: This session runs always"
+            deleteDir()
         }
         success{
             bat "echo success :: This session runs when pipeline success"
