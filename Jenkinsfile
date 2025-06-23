@@ -6,12 +6,16 @@ pipeline {
     options {
         // Timeout counter starts AFTER agent is allocated
         timeout(time: 1, unit: 'MINUTES')
-        disableConcurrentBuilds()
+        disableConcurrentBuilds() // only one runs at a time
+        retry(1);
     }
+    parameters {
+         string(name: 'DEPLOY_ENV', defaultValue: 'staging', description: '') 
+         }
     stages {
         stage('Dev') {
             steps {
-               bat 'echo In Development Environment'
+               bat "echo In Development Environment ::  ${param.name}"
             }
         }
         stage('Staging') {
